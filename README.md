@@ -2,11 +2,12 @@
 
 ![Imagen de Muestra](./images/imagenMuestra.png)
 
-###Simulador de Tienda Virtual Desarrollado con Programación Orientada a Objetos
+### Simulador de Tienda Virtual Desarrollado con Programación Orientada a Objetos
 
 Este simulador de tienda virtual ofrece una experiencia completa tanto para clientes como para administradores. Las principales funciones incluyen:
 <br>
 Ingreso de Usuarios:
+<br>
 Cliente: Puede visualizar los productos y realizar compras.
 <br>
 Administrador: Requiere autenticación para acceder. Una vez autenticado, el administrador puede agregar, modificar o eliminar productos de la tienda.
