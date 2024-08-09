@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Map;
+
 public interface Menus {
 
     default void welcomeMenu() {
@@ -17,7 +20,7 @@ public interface Menus {
         System.out.println("2. Laptops");
         System.out.println("3. Televisions");
         System.out.println("4. Fridges");
-        System.out.println("5. Whashing Machines");
+        System.out.println("5. Washing Machines");
         System.out.println("0. Return.");
         System.out.print("Your Choice: ");
     }

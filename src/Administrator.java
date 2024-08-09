@@ -98,35 +98,67 @@ public class Administrator implements Menus {
     }
 
     private void modifyProduct() {
-        System.out.println();
-        System.out.println("Modifying product...");
-        System.out.print("Choose the category to which the product to be modified belongs: ");
-        inputAdministrator = sCInputAdministrator.nextLine();
+        int productCategory = 0;
+        int idProduct = 0;
 
-        switch (inputAdministrator) {
-            case "1":
-                cellphonesList();
-                break;
-            case "2":
-                laptopList();
-                break;
-            case "3":
-                televisionsList();
-                break;
-            case "4":
-                fridgesList();
-                break;
-            case "5":
-                whashingMachinesList();
-                break;
-            default:
+        do {
+            System.out.println();
+            System.out.println("Modifying product...");
+            System.out.print("Choose the category to which the product to be modified belongs: ");
+
+            try {
+                productCategory = sCInputAdministrator.nextInt();
+
+                switch (productCategory) {
+                    case 1:
+                        cellphonesList();
+                        break;
+                    case 2:
+                        laptopList();
+                        break;
+                    case 3:
+                        televisionsList();
+                        break;
+                    case 4:
+                        fridgesList();
+                        break;
+                    case 5:
+                        whashingMachinesList();
+                        break;
+                    default:
+                        System.out.println("¡Remember to choose only from the available options!");
+                }
+            } catch (NumberFormatException e) {
                 System.out.println("¡Remember to choose only from the available options!");
-                modifyProduct();
-        }
-        System.out.println();
-        System.out.print("Choose the product: ");
-        inputAdministrator = sCInputAdministrator.nextLine();
+            }
+        } while(productCategory == 0);
 
+        do {
+            System.out.println();
+            System.out.print("Choose the product: ");
+
+            try {
+                idProduct = sCInputAdministrator.nextInt();
+
+                if (idProduct <= Store.products.size()) {
+                    System.out.print("New name: ");
+                    String newName = sCInputAdministrator.nextLine();
+
+                    System.out.print("New Price: ");
+                    String newPrice = sCInputAdministrator.nextLine();
+
+                    if (productCategory == 1) {
+
+                    }
+
+                } else {
+                    System.out.println("¡Remember to choose only from the available options!");
+                }
+
+            } catch (NumberFormatException e) {
+                System.out.println("¡Remember to choose only from the available options!");
+            }
+        } while(idProduct == 0);
 
     }
 

@@ -6,11 +6,16 @@
 
 Este simulador de tienda virtual ofrece una experiencia completa tanto para clientes como para administradores. Las principales funciones incluyen:
 <br>
+<br>
 Ingreso de Usuarios:
+<br>
 <br>
 Cliente: Puede visualizar los productos y realizar compras.
 <br>
+<br>
 Administrador: Requiere autenticación para acceder. Una vez autenticado, el administrador puede agregar, modificar o eliminar productos de la tienda.
+<br>
+<br>
 Este simulador está diseñado para brindar una experiencia intuitiva y eficiente, aprovechando las ventajas de la Programación Orientada a Objetos.
 <br>
     
