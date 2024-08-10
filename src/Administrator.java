@@ -100,6 +100,8 @@ public class Administrator implements Menus {
     private void modifyProduct() {
         int productCategory = 0;
         int idProduct = 0;
+        String newName = "";
+        int newPrice = 0;
 
         do {
             System.out.println();
@@ -142,13 +144,34 @@ public class Administrator implements Menus {
 
                 if (idProduct <= Store.products.size()) {
                     System.out.print("New name: ");
-                    String newName = sCInputAdministrator.nextLine();
+                    newName = sCInputAdministrator.nextLine();
 
                     System.out.print("New Price: ");
-                    String newPrice = sCInputAdministrator.nextLine();
+                    newPrice = sCInputAdministrator.nextInt();
 
-                    if (productCategory == 1) {
-
+                    switch (productCategory) {
+                        case 1:
+                            Store.cellPhones.get(idProduct).setName(newName);
+                            Store.cellPhones.get(idProduct).setPrice(newPrice);
+                            break;
+                        case 2:
+                            Store.laptops.get(idProduct).setName(newName);
+                            Store.laptops.get(idProduct).setPrice(newPrice);
+                            break;
+                        case 3:
+                            Store.televisions.get(idProduct).setName(newName);
+                            Store.televisions.get(idProduct).setPrice(newPrice);
+                            break;
+                        case 4:
+                            Store.fridges.get(idProduct).setName(newName);
+                            Store.fridges.get(idProduct).setPrice(newPrice);
+                            break;
+                        case 5:
+                            Store.washingMachines.get(idProduct).setName(newName);
+                            Store.washingMachines.get(idProduct).setPrice(newPrice);
+                            break;
+                        default:
+                            System.out.println("¡Remember to choose only from the available options!");
                     }
 
                 } else {
@@ -159,7 +182,6 @@ public class Administrator implements Menus {
                 System.out.println("¡Remember to choose only from the available options!");
             }
         } while(idProduct == 0);
-
     }
 
     private void addProduct() {
