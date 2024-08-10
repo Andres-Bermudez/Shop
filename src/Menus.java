@@ -1,6 +1,3 @@
-import java.util.LinkedList;
-import java.util.Map;
-
 public interface Menus {
 
     default void welcomeMenu() {

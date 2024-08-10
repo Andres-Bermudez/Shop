@@ -1,12 +1,9 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Administrator implements Menus {
     protected static String  nameAdministrator;
     protected static String passwordAdministrator;
-
-    private String inputAdministrator;
-
-    private final Scanner sCInputAdministrator = new Scanner(System.in);
 
     protected Administrator(String nameAdministrator, String passwordAdministrator) {
         Administrator.nameAdministrator = nameAdministrator;
@@ -16,13 +13,14 @@ public class Administrator implements Menus {
     protected void verifyAdministrator() {
         String supposedNameAdministrator;
         String supposedPasswordAdministrator;
+        Scanner input = new Scanner(System.in);
 
         System.out.println();
         System.out.print("Enter your email: ");
-        supposedNameAdministrator = sCInputAdministrator.nextLine();
+        supposedNameAdministrator = input.nextLine();
 
         System.out.print("Enter your password: ");
-        supposedPasswordAdministrator = sCInputAdministrator.nextLine();
+        supposedPasswordAdministrator = input.nextLine();
 
         if (supposedNameAdministrator.equals(nameAdministrator) &&
                 supposedPasswordAdministrator.equals(passwordAdministrator)) {
@@ -36,6 +34,9 @@ public class Administrator implements Menus {
     }
 
     private void administratorMenu() {
+        Scanner input = new Scanner(System.in);
+        String inputAdministrator = "";
+
         do {
             System.out.println();
             System.out.println("Welcome Administrator: " + nameAdministrator);
@@ -46,7 +47,7 @@ public class Administrator implements Menus {
             System.out.println("   0. Return");
             System.out.print("Your Choice: ");
 
-            inputAdministrator = sCInputAdministrator.nextLine();
+            inputAdministrator = input.nextLine();
 
             switch (inputAdministrator) {
                 case "0":
@@ -73,8 +74,11 @@ public class Administrator implements Menus {
     }
 
     private void showProducts() {
+        Scanner input = new Scanner(System.in);
+        String inputAdministrator = "";
+
         productsList();
-        inputAdministrator = sCInputAdministrator.nextLine();
+        inputAdministrator = input.nextLine();
 
         switch (inputAdministrator) {
             case "1":
@@ -98,10 +102,10 @@ public class Administrator implements Menus {
     }
 
     private void modifyProduct() {
+        Scanner input = new Scanner(System.in);
+
         int productCategory = 0;
         int idProduct = 0;
-        String newName = "";
-        int newPrice = 0;
 
         do {
             System.out.println();
@@ -109,7 +113,7 @@ public class Administrator implements Menus {
             System.out.print("Choose the category to which the product to be modified belongs: ");
 
             try {
-                productCategory = sCInputAdministrator.nextInt();
+                productCategory = input.nextInt();
 
                 switch (productCategory) {
                     case 1:
@@ -140,62 +144,224 @@ public class Administrator implements Menus {
             System.out.print("Choose the product: ");
 
             try {
-                idProduct = sCInputAdministrator.nextInt();
-
-                if (idProduct <= Store.products.size()) {
-                    System.out.print("New name: ");
-                    newName = sCInputAdministrator.nextLine();
-
-                    System.out.print("New Price: ");
-                    newPrice = sCInputAdministrator.nextInt();
-
-                    switch (productCategory) {
-                        case 1:
-                            Store.cellPhones.get(idProduct).setName(newName);
-                            Store.cellPhones.get(idProduct).setPrice(newPrice);
-                            break;
-                        case 2:
-                            Store.laptops.get(idProduct).setName(newName);
-                            Store.laptops.get(idProduct).setPrice(newPrice);
-                            break;
-                        case 3:
-                            Store.televisions.get(idProduct).setName(newName);
-                            Store.televisions.get(idProduct).setPrice(newPrice);
-                            break;
-                        case 4:
-                            Store.fridges.get(idProduct).setName(newName);
-                            Store.fridges.get(idProduct).setPrice(newPrice);
-                            break;
-                        case 5:
-                            Store.washingMachines.get(idProduct).setName(newName);
-                            Store.washingMachines.get(idProduct).setPrice(newPrice);
-                            break;
-                        default:
-                            System.out.println("¡Remember to choose only from the available options!");
-                    }
-
-                } else {
-                    System.out.println("¡Remember to choose only from the available options!");
-                }
+                idProduct = input.nextInt();
 
             } catch (NumberFormatException e) {
                 System.out.println("¡Remember to choose only from the available options!");
             }
         } while(idProduct == 0);
+
+        input.nextLine();
+
+        if (idProduct <= Store.products.size()) {
+            String newName = "";
+            int newPrice = 0;
+
+            do {
+                System.out.print("New name: ");
+                newName = input.nextLine();
+
+                System.out.print("New Price: ");
+
+                try {
+                    newPrice = input.nextInt();
+
+                } catch (InputMismatchException e) {
+                    System.out.println();
+                    System.out.println("¡The price must be a numerical value!");
+                }
+                input.nextLine();
+
+            } while (newPrice == 0);
+
+            switch (productCategory) {
+                case 1:
+                    Store.cellPhones.get(idProduct - 1).setName(newName);
+                    Store.cellPhones.get(idProduct - 1).setPrice(newPrice);
+                    break;
+                case 2:
+                    Store.laptops.get(idProduct - 1).setName(newName);
+                    Store.laptops.get(idProduct - 1).setPrice(newPrice);
+                    break;
+                case 3:
+                    Store.televisions.get(idProduct - 1).setName(newName);
+                    Store.televisions.get(idProduct - 1).setPrice(newPrice);
+                    break;
+                case 4:
+                    Store.fridges.get(idProduct - 1).setName(newName);
+                    Store.fridges.get(idProduct - 1).setPrice(newPrice);
+                    break;
+                case 5:
+                    Store.washingMachines.get(idProduct - 1).setName(newName);
+                    Store.washingMachines.get(idProduct - 1).setPrice(newPrice);
+                    break;
+                default:
+                    System.out.println("¡Remember to choose only from the available options!");
+                    break;
+            }
+        } else {
+            System.out.println("¡Remember to choose only from the available options!");
+        }
+        System.out.println();
+        System.out.println("¡Successfully modified product!");
     }
 
     private void addProduct() {
-        System.out.println();
-        System.out.println("Adding a product...");
-        System.out.print("Name product: ");
-        inputAdministrator = sCInputAdministrator.nextLine();
+        Scanner input = new Scanner(System.in);
+        String nameNewProduct = "";
+        int priceNewProduct = 0;
+        int productCategory = 0;
 
-        System.out.print("Product price: ");
-        inputAdministrator = sCInputAdministrator.nextLine();
+        do {
+            System.out.println();
+            System.out.println("Adding a product...");
+            System.out.print("Choose the category to which you are going to add a product: ");
+
+            try {
+                productCategory = input.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println();
+                System.out.println("¡Remember to choose only from the available options!");
+            }
+
+            if (productCategory > Store.products.size() || productCategory <= 0) {
+                System.out.println("¡Remember to choose only from the available options!");
+            }
+        } while (productCategory > Store.products.size() || productCategory <= 0);
+
+        input.nextLine();
+
+        do {
+            System.out.println();
+            System.out.print("Name product: ");
+            nameNewProduct = input.nextLine();
+
+            System.out.print("Product price: ");
+
+            try {
+                priceNewProduct = input.nextInt();
+
+            } catch (InputMismatchException e) {
+                System.out.println();
+                System.out.println("¡Remember to choose only from the available options!");
+            }
+            input.nextLine();
+
+        } while (priceNewProduct == 0);
+
+        switch (productCategory) {
+            case 1:
+                Store.cellPhones.add(new Product(nameNewProduct, priceNewProduct));
+                break;
+            case 2:
+                Store.laptops.add(new Product(nameNewProduct, priceNewProduct));
+                break;
+            case 3:
+                Store.televisions.add(new Product(nameNewProduct, priceNewProduct));
+                break;
+            case 4:
+                Store.fridges.add(new Product(nameNewProduct, priceNewProduct));
+                break;
+            case 5:
+                Store.washingMachines.add(new Product(nameNewProduct, priceNewProduct));
+                break;
+            default:
+                break;
+        }
+        System.out.println();
+        System.out.println("¡Product added correctly!");
     }
 
     private void deleteProduct() {
+        Scanner input = new Scanner(System.in);
+        int productCategoryDelete = 0;
+        int idProductDelete = 0;
+
+        do {
+            System.out.println();
+            System.out.println("Delete product...");
+            System.out.print("Choose the category to which the product you are going to delete belongs: ");
+
+            try {
+                productCategoryDelete = input.nextInt();
+
+            } catch (InputMismatchException e) {
+                System.out.println("¡Remember to choose only from the available options!");
+            }
+
+            if (productCategoryDelete < 0 || productCategoryDelete > Store.products.size()) {
+                System.out.println("¡Remember to choose only from the available options!");
+            }
+        } while (productCategoryDelete < 0 || productCategoryDelete > Store.products.size());
+
+        switch (productCategoryDelete) {
+            case 1:
+                cellphonesList();
+                break;
+            case 2:
+                laptopList();
+                break;
+            case 3:
+                televisionsList();
+                break;
+            case 4:
+                fridgesList();
+                break;
+            case 5:
+                whashingMachinesList();
+                break;
+            default:
+                System.out.println("¡Remember to choose only from the available options!");
+        }
+        input.nextLine();
+
+        do {
+            System.out.print("Enter the ID of the product you are going to delete: ");
+            try {
+                idProductDelete = input.nextInt();
+
+            } catch (InputMismatchException e) {
+                System.out.println("¡Remember to choose only from the available options!");
+            }
+
+            if (idProductDelete < 0 || idProductDelete > Store.products.size()) {
+                System.out.println("¡Remember to choose only from the available options!");
+            }
+        } while (idProductDelete < 0 || idProductDelete > Store.products.size());
+        input.nextLine();
+
+        String confirmation = "";
+
         System.out.println();
-        System.out.println("Delete product...");
+        System.out.print("Are you sure to delete this product? yes/no: " );
+        confirmation = input.nextLine();
+
+        if (confirmation.equals("yes")) {
+            switch (productCategoryDelete) {
+                case 1:
+                    Store.cellPhones.remove(idProductDelete - 1);
+                    break;
+                case 2:
+                    Store.laptops.remove(idProductDelete - 1);
+                    break;
+                case 3:
+                    Store.televisions.remove(idProductDelete - 1);
+                    break;
+                case 4:
+                    Store.fridges.remove(idProductDelete - 1);
+                    break;
+                case 5:
+                    Store.washingMachines.remove(idProductDelete - 1);
+                    break;
+                default:
+                    break;
+            }
+            System.out.println();
+            System.out.println("¡Product successfully removed!");
+
+        } else {
+            System.out.println();
+            System.out.println("¡Canceled operation!");
+        }
     }
 }
