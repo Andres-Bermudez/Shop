@@ -5,10 +5,10 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int optionUser = 0;
 
-        Store store1 = new Store("AB'z Tecnology");
+        Store store1 = new Store(">>> Bermudez Tecnology <<<");
         store1.addProducts();
 
-        Administrator admin = new Administrator("Andres@mail.com", "abcd1234");
+        Administrator admin = new Administrator("Andres Bermudez", "Andres@mail.com", "abcd1234");
 
         while (true) {
             admin.welcomeMenu();

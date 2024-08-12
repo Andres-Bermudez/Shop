@@ -2,7 +2,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
 public class Store {
-    protected static String nameStore;
+    private static String nameStore;
 
     //Lista de productos
     protected static LinkedHashMap<Integer ,LinkedList<Product>> products = new LinkedHashMap<>();
@@ -22,7 +22,7 @@ public class Store {
     // Lavadoras
     protected static LinkedList<Product> washingMachines = new LinkedList<>();
 
-    public Store(String nameStore) {
+    protected Store(String nameStore) {
         Store.nameStore = nameStore;
     }
 
@@ -78,6 +78,10 @@ public class Store {
         washingMachines.add(new Product("Mabe", 4800000));
         washingMachines.add(new Product("Samsung", 4200000));
         washingMachines.add(new Product("Electrolux", 4900000));
+    }
+
+    public static String getNameStore() {
+        return nameStore;
     }
 
     @Override

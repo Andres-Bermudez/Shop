@@ -3,9 +3,10 @@ import java.util.Scanner;
 
 public class Administrator implements Menus {
     protected static String  nameAdministrator;
-    protected static String passwordAdministrator;
+    private static String emailAdministrator;
+    private static String passwordAdministrator;
 
-    protected Administrator(String nameAdministrator, String passwordAdministrator) {
+    protected Administrator(String nameAdministrator ,String emailAdministrator, String passwordAdministrator) {
         Administrator.nameAdministrator = nameAdministrator;
         Administrator.passwordAdministrator = passwordAdministrator;
     }

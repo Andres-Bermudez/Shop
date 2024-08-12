@@ -2,7 +2,7 @@ public interface Menus {
 
     default void welcomeMenu() {
         System.out.println();
-        System.out.println(":: Welcome to " + Store.nameStore + " ::");
+        System.out.println(":: Welcome to " + Store.getNameStore() + " ::");
         System.out.println("Enter as:");
         System.out.println("   1. Client");
         System.out.println("   2. Administrador");
