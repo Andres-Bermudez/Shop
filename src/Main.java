@@ -22,8 +22,8 @@ public class Main {
 
             switch (optionUser) {
                 case 1:
-                    Client client = new Client();
-                    client.buyProducts();
+                    Customer customer = new Customer();
+                    customer.buyProducts();
                     break;
                 case 2:
                     admin.verifyAdministrator();

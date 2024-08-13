@@ -83,10 +83,4 @@ public class Store {
     public static String getNameStore() {
         return nameStore;
     }
-
-    @Override
-    public String toString() {
-        return "Name Store: " + nameStore + "\n" +
-               "Administrator: " + Administrator.nameAdministrator;
-    }
 }

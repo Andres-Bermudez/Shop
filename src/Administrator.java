@@ -2,13 +2,14 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Administrator implements Menus {
-    protected static String  nameAdministrator;
-    private static String emailAdministrator;
-    private static String passwordAdministrator;
+    private final String nameAdministrator;
+    private final String emailAdministrator;
+    private final String passwordAdministrator;
 
     protected Administrator(String nameAdministrator ,String emailAdministrator, String passwordAdministrator) {
-        Administrator.nameAdministrator = nameAdministrator;
-        Administrator.passwordAdministrator = passwordAdministrator;
+        this.nameAdministrator = nameAdministrator;
+        this.emailAdministrator = emailAdministrator;
+        this.passwordAdministrator = passwordAdministrator;
     }
 
     protected void verifyAdministrator() {
@@ -23,7 +24,7 @@ public class Administrator implements Menus {
         System.out.print("Enter your password: ");
         supposedPasswordAdministrator = input.nextLine();
 
-        if (supposedNameAdministrator.equals(nameAdministrator) &&
+        if (supposedNameAdministrator.equals(emailAdministrator) &&
                 supposedPasswordAdministrator.equals(passwordAdministrator)) {
 
             administratorMenu();
@@ -325,10 +326,29 @@ public class Administrator implements Menus {
                 System.out.println("¡Remember to choose only from the available options!");
             }
 
-            if (idProductDelete < 0 || idProductDelete > Store.products.size()) {
+            if (idProductDelete < 0) {
+                System.out.println("¡Remember to choose only from the available options!");
+
+            } else if (productCategoryDelete == 1 && idProductDelete > Store.cellPhones.size()) {
+                System.out.println("¡Remember to choose only from the available options!");
+
+            } else if (productCategoryDelete == 2 && idProductDelete > Store.laptops.size()) {
+                System.out.println("¡Remember to choose only from the available options!");
+
+            } else if (productCategoryDelete == 3 && idProductDelete > Store.laptops.size()) {
+                System.out.println("¡Remember to choose only from the available options!");
+
+            } else if (productCategoryDelete == 4 && idProductDelete > Store.laptops.size()) {
+                System.out.println("¡Remember to choose only from the available options!");
+
+            } else if (productCategoryDelete == 5 && idProductDelete > Store.laptops.size()) {
+                System.out.println("¡Remember to choose only from the available options!");
+
+            } else {
                 System.out.println("¡Remember to choose only from the available options!");
             }
-        } while (idProductDelete < 0 || idProductDelete > Store.products.size());
+        } while (idProductDelete <= 0);
+
         input.nextLine();
 
         String confirmation = "";

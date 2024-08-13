@@ -1,6 +1,4 @@
-import java.util.Scanner;
-
-public class Client implements Menus {
+public class Customer implements Menus {
 
     protected void buyProducts() {
         productsList();
