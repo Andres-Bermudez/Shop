@@ -32,6 +32,7 @@ public class Administrator implements Menus {
         } else {
             System.out.println();
             System.out.println("¡Authentication Error!");
+            verifyAdministrator();
         }
     }
 
@@ -46,7 +47,7 @@ public class Administrator implements Menus {
             System.out.println("   2. Modify product.");
             System.out.println("   3. Add products.");
             System.out.println("   4. Delete product.");
-            System.out.println("   0. Return");
+            System.out.println("   0. Exit");
             System.out.print("Your Choice: ");
 
             inputAdministrator = input.nextLine();
@@ -335,13 +336,13 @@ public class Administrator implements Menus {
             } else if (productCategoryDelete == 2 && idProductDelete > Store.laptops.size()) {
                 System.out.println("¡Remember to choose only from the available options!");
 
-            } else if (productCategoryDelete == 3 && idProductDelete > Store.laptops.size()) {
+            } else if (productCategoryDelete == 3 && idProductDelete > Store.televisions.size()) {
                 System.out.println("¡Remember to choose only from the available options!");
 
-            } else if (productCategoryDelete == 4 && idProductDelete > Store.laptops.size()) {
+            } else if (productCategoryDelete == 4 && idProductDelete > Store.fridges.size()) {
                 System.out.println("¡Remember to choose only from the available options!");
 
-            } else if (productCategoryDelete == 5 && idProductDelete > Store.laptops.size()) {
+            } else if (productCategoryDelete == 5 && idProductDelete > Store.washingMachines.size()) {
                 System.out.println("¡Remember to choose only from the available options!");
 
             } else {
