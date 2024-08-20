@@ -1,11 +1,12 @@
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class ShopingCart {
-    private String user;
-    protected LinkedList<Product> listProductsBuy = new LinkedList<>();
+    private static String user;
+    protected static ArrayList<Product> listProductsBuy = new ArrayList<>();
 
-    protected void showShoppingCart() {
-        System.out.println(">>> Your Cart " + getUser() + " <<<");
+    protected static void showShoppingCart() {
+        System.out.println();
+        System.out.println(">>> Your Cart " + ShopingCart.getUser() + " <<<");
 
         for (Product iterator : listProductsBuy) {
             System.out.println("    - " + iterator);
@@ -16,21 +17,21 @@ public class ShopingCart {
         listProductsBuy.add(product);
 
         System.out.println();
-        System.out.println("¡Product added to shopping cart!");
+        System.out.println("¡Product added to cart!");
     }
 
-    protected void removeCart(Product product) {
+    protected static void removeCart(Product product) {
         listProductsBuy.remove(product);
 
         System.out.println();
-        System.out.println("¡Product removed from shopping cart!");
+        System.out.println("¡Product removed from cart!");
     }
 
-    public String getUser() {
+    public static String getUser() {
         return user;
     }
 
     public void setUser(String user) {
-        this.user = user;
+        ShopingCart.user = user;
     }
 }
