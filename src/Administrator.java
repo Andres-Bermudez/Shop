@@ -56,6 +56,8 @@ public class Administrator implements Menus {
                 case "0":
                     System.out.println();
                     System.out.println("¡Correct closed session!");
+                    StartSystem obj = new StartSystem();
+                    obj.start();
                     break;
                 case "1":
                     showProducts();
@@ -156,7 +158,8 @@ public class Administrator implements Menus {
 
         input.nextLine();
 
-        if (idProduct <= Store.products.size()) {
+        if (idProduct <= Store.cellPhones.size() || idProduct <= Store.laptops.size() ||
+                idProduct <= Store.televisions.size() || idProduct <= Store.fridges.size() || idProduct <= Store.washingMachines.size()) {
             String newName = "";
             int newPrice = 0;
 

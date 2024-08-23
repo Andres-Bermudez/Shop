@@ -1,16 +1,17 @@
 import java.util.ArrayList;
 
 public class ShopingCart {
-    private static String user;
     protected static ArrayList<Product> listProductsBuy = new ArrayList<>();
 
     protected static void showShoppingCart() {
         System.out.println();
-        System.out.println(">>> Your Cart " + ShopingCart.getUser() + " <<<");
+        System.out.println(">>> Your Cart <<<");
 
+        System.out.println();
         for (Product iterator : listProductsBuy) {
             System.out.println("    - " + iterator);
         }
+        System.out.println();
     }
 
     protected void addCart(Product product) {
@@ -25,13 +26,5 @@ public class ShopingCart {
 
         System.out.println();
         System.out.println("¡Product removed from cart!");
-    }
-
-    public static String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        ShopingCart.user = user;
     }
 }

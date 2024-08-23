@@ -9,7 +9,9 @@ public class StartSystem {
     Administrator admin = new Administrator("Andres Bermudez", "Andres@mail.com", "abcd1234");
 
     public void start() {
-        store1.addProducts();
+        if (Store.products.isEmpty()) {
+            store1.addProducts();
+        }
 
         while(optionUser ==0) {
             admin.welcomeMenu();

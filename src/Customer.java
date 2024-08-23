@@ -122,6 +122,7 @@ public class Customer implements Menus {
             System.out.println(">>> Welcome <<<");
             System.out.println("    1. Product List");
             System.out.println("    2. My cart");
+            System.out.println("    3. Exit");
             System.out.print("Your choice: ");
 
             try {
@@ -140,11 +141,15 @@ public class Customer implements Menus {
                     ShopingCart.showShoppingCart();
                     confirmPurchase();
                     break;
+                case 3:
+                    System.out.println("¡Thanks for use My Shop!");
+                    System.exit(0);
+                    break;
                 default:
                     System.out.println("¡Remember to choose only from the available options!");
                     break;
             }
-        } while (inputUser < 0 || inputUser > 2);
+        } while (inputUser < 0 || inputUser > 3);
     }
 
     private void confirmPurchase() {
@@ -154,6 +159,7 @@ public class Customer implements Menus {
 
         System.out.println("  1. Go to pay");
         System.out.println("  2. Remove product from cart");
+        System.out.println("  3. Return");
         System.out.print("Your choice: ");
 
         try {
@@ -166,12 +172,48 @@ public class Customer implements Menus {
 
         switch (inputUser) {
             case 1:
+                pay();
                 break;
             case 2:
                 confirmDeleteProduct();
                 break;
+            case 3:
+                buyProducts();
+                break;
             default:
                 break;
+        }
+    }
+
+    private void pay() {
+        int payTotal = 0;
+        String confirmBuy = "";
+        Scanner sc = new Scanner(System.in);
+
+        for (Product i : ShopingCart.listProductsBuy) {
+            payTotal += i.getPrice();
+        }
+
+        System.out.println("Total to pay: $" + payTotal);
+        System.out.print("Write Yes/Not to confirm your purchase: ");
+        confirmBuy = sc.nextLine();
+
+        if (confirmBuy.equals("Yes")) {
+            System.out.println();
+            System.out.println("Your purchase was: ");
+
+            for (Product i : ShopingCart.listProductsBuy) {
+                System.out.println("    - " + i);
+            }
+            System.out.println("Your payment was: " + payTotal);
+            System.out.println("¡Thank you for your purchase!");
+            System.exit(0);
+        } else if (confirmBuy.equals("Not")) {
+            System.out.println("¡Thanks for use My Shop!");
+            System.exit(0);
+        } else {
+            System.out.println();
+            System.out.println("¡Remember to choose only from the available options!");
         }
     }
 
