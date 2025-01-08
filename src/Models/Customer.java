@@ -1,3 +1,7 @@
+package Models;
+
+import menu.Menus;
+import menu.StartSystem;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -5,7 +9,7 @@ public class Customer implements Menus {
     private int customerElectionCategory = 0;
     private int customerElectionIDproduct = 0;
 
-    protected void buyProducts() {
+    public void buyProducts() {
         Scanner sc = new Scanner(System.in);
 
         do {

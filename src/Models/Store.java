@@ -1,3 +1,5 @@
+package Models;
+
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
@@ -5,28 +7,28 @@ public class Store {
     private static String nameStore;
 
     //Lista de productos
-    protected static LinkedHashMap<Integer ,LinkedList<Product>> products = new LinkedHashMap<>();
+    public static LinkedHashMap<Integer ,LinkedList<Product>> products = new LinkedHashMap<>();
 
     // Celulares
-    protected static LinkedList<Product> cellPhones = new LinkedList<>();
+    public static LinkedList<Product> cellPhones = new LinkedList<>();
 
     // Laptops
-    protected static LinkedList<Product> laptops = new LinkedList<>();
+    public static LinkedList<Product> laptops = new LinkedList<>();
 
     // Televisores
-    protected static LinkedList<Product> televisions = new LinkedList<>();
+    public static LinkedList<Product> televisions = new LinkedList<>();
 
     // Neveras
-    protected static LinkedList<Product> fridges = new LinkedList<>();
+    public static LinkedList<Product> fridges = new LinkedList<>();
 
     // Lavadoras
-    protected static LinkedList<Product> washingMachines = new LinkedList<>();
+    public static LinkedList<Product> washingMachines = new LinkedList<>();
 
-    protected Store(String nameStore) {
+    public Store(String nameStore) {
         Store.nameStore = nameStore;
     }
 
-    protected void addProducts() {
+    public void addProducts() {
         addCellphones();
         addLaptops();
         addTelevisions();

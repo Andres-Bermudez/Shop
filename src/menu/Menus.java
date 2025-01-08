@@ -1,3 +1,8 @@
+package menu;
+
+import Models.Product;
+import Models.Store;
+
 public interface Menus {
 
     default void welcomeMenu() {

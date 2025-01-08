@@ -1,24 +1,31 @@
 # Simulador Tienda Virtual
 
-![Imagen de Muestra](./images/imagenMuestra.png)
+![Imagen de Muestra](./images/demo.png)
 
 ### Simulador de Tienda Virtual Desarrollado con Programación Orientada a Objetos
 
-Este simulador de tienda virtual ofrece una experiencia completa tanto para clientes como para administradores. Las principales funciones incluyen:
-<br>
-<br>
+Este simulador de tienda virtual ofrece una experiencia completa tanto para clientes como para administradores.
+
+Las principales funciones incluyen:
+
 Ingreso de Usuarios:
-<br>
-<br>
-Cliente: Puede visualizar los productos y realizar compras.
-<br>
-<br>
+
+Cliente: El cliente puede visualizar los productos y realizar compras.
+
 Administrador: Requiere autenticación para acceder. Una vez autenticado, el administrador puede agregar, modificar o eliminar productos de la tienda.
-<br>
-<br>
+
+Carrito de compras: El cliente puede agregar varios productos
+al carrito y luego realizar una compra donde se suman los valores
+de los precios de cada producto en una sola cuenta.
+
 Este simulador está diseñado para brindar una experiencia intuitiva y eficiente, aprovechando las ventajas de la Programación Orientada a Objetos.
-<br>
-    
+
+- Agregando productos al carrito:
+![addingShoppingCart.png](images/addingShoppingCart.png)
+  
+- Productos agregados al carrito:  
+![shoopingCart.png](images/shoopingCart.png)
+
 ## Objetivos del proyecto:
 1. Poner en practica los conocimientos adquiridos en los cursos que tome sobre
 programación orientada a objetos con Java:

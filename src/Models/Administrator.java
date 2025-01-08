@@ -1,3 +1,7 @@
+package Models;
+
+import menu.Menus;
+import menu.StartSystem;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -6,13 +10,13 @@ public class Administrator implements Menus {
     private final String emailAdministrator;
     private final String passwordAdministrator;
 
-    protected Administrator(String nameAdministrator ,String emailAdministrator, String passwordAdministrator) {
+    public Administrator(String nameAdministrator, String emailAdministrator, String passwordAdministrator) {
         this.nameAdministrator = nameAdministrator;
         this.emailAdministrator = emailAdministrator;
         this.passwordAdministrator = passwordAdministrator;
     }
 
-    protected void verifyAdministrator() {
+    public void verifyAdministrator() {
         String supposedNameAdministrator;
         String supposedPasswordAdministrator;
         Scanner input = new Scanner(System.in);

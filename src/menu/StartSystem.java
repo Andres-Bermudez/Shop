@@ -1,14 +1,20 @@
+package menu;
+
+import Models.Administrator;
+import Models.Customer;
+import Models.Store;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class StartSystem {
-    Scanner sc = new Scanner(System.in);
-    int optionUser = 0;
+    private Scanner sc = new Scanner(System.in);
+    private int optionUser = 0;
 
-    Store store1 = new Store(">>> Bermudez Tecnology <<<");
-    Administrator admin = new Administrator("Andres Bermudez", "Andres@mail.com", "abcd1234");
+    private Store store1 = new Store(">>> Bermudez Tecnology <<<");
+    private Administrator admin = new Administrator("Andres Bermudez", "Andres@mail.com", "abcd1234");
 
     public void start() {
+        // Verificacion si la lista de productos esta vacia
         if (Store.products.isEmpty()) {
             store1.addProducts();
         }
